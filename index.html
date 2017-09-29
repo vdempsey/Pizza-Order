@@ -16,39 +16,43 @@
       </p>
       <form id = "pizza_order">
         <div class = "form-group">
-          <h3>Choose your toppings:</h3>
+          <h3>Choose your size</h3>
+          <p>Base price for 2 toppings: $12.99/small, $14.99/medium, $20.99/large.</p>
+          <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="size" value="small" id="small">Small
+              </label>
+          </div>
+          <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="size" value="medium" id="medium">Medium
+              </label>
+          </div>
+          <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="size" value="large" id="large">Large
+              </label>
+          </div>
+        </div>
+        <div class = "form-group">
+          <h3>Choose your toppings</h3>
+          <p><strong>Please note</strong> if you choose over 2 toppings, we will add $1.99 to the base price.</p>
           <input type="checkbox" name="toppings" value="cheese">Cheese<br>
           <input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>
           <input type="checkbox" name="toppings" value="arugula">Arugula<br>
           <input type="checkbox" name="toppings" value="tomatoes">Tomatoes<br>
           <input type="checkbox" name="toppings" value="olives">Olives<br>
         </div>
-        <div class = "form-group">
-          <h3>Choose your size</h3>
-          <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="size" value="small" id="small">Small $12.99
-              </label>
-          </div>
-          <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="size" value="medium" id="medium">Medium $14.99
-              </label>
-          </div>
-          <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="size" value="large" id="large">Large $20.99
-              </label>
-          </div>
-        </div>
         <button type="submit">Submit your order</button>
       </form>
-      <span id="receipt">
-        <p><b>Here is what you will be enjoing soon</b></p>
-      </span>
-      <span id="total">
-        <p><b>Your total is:</b></p>
-      </span>
+      <div class="postSubmittion">
+        <span id="receipt">
+          <p></p>
+        </span>
+        <span id="total">
+          <p></p>
+        </span>
+      </div>
     </div>
   </body>
 </html>

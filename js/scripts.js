@@ -3,55 +3,43 @@ function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
   this.price = {
-    "small": "$12.99",
-    "medium": "$14.99",
-    "large": "$20.99",
+    "small": 12.99,
+    "medium": 14.99,
+    "large": 20.99,
   }
 }
 
-
-
-Pizza.prototype.total = function() {
-  return this.price[this.size];
+Pizza.prototype.chosenToppings = function() {
+  return this.toppings.join(", ");
 }
 
-//Pizza.prototype.total = function() {
-//  return this.total;
-//}
+Pizza.prototype.total = function() {
+  var basePrice = this.price[this.size];
+  if(this.toppings.length > 2) {
+    basePrice += 1.99; //to reflect the price for 3 and more toppings
+  }
+  return basePrice;
+}
 
-//Pizza.prototype.orderedSize = function() {
-//  return this.chosenSize;
-//}
 
 //user interface logic
 $(document).ready(function() {
   $("form#pizza_order").submit(function(event) {
     event.preventDefault();
     $("#receipt").show();
-    //var chosenToppings = [];
     var checkedToppings = [];
     $("input:checkbox[name=toppings]:checked").each(function() {
     checkedToppings.push($(this).val());
     });
 
-    var chosenToppings = checkedToppings.join(", ");
     var chosenSize = $("input:radio[name=size]:checked").val();
+    $(".postSubmittion").show();
     $("#total").show();
 
-    var customerPizza = new Pizza (chosenToppings, chosenSize);
-    $("#total").text("Your total is " + customerPizza.total());
-    // } else if (chosenSize === "small") {
-    //   $("#total").text("$12.99");
-    // } else {
-    //   $("#total").text("$20.99");
-    // }
+    var customerPizza = new Pizza (checkedToppings, chosenSize);
+    $("#total").text("Your total is $" + customerPizza.total());
 
-
-    //var toppingsOrdered = new Pizza(chosenToppings);
-    //var sizeOrdered = new Pizza(chosenSize);
-
-
-    $("#receipt").text("You will be gettting " + chosenSize +"-sized pizza with the following toppings: " + chosenToppings + ".");
+    $("#receipt").text("You will be gettting " + customerPizza.size +"-sized pizza with the following toppings: " + customerPizza.chosenToppings() + ".");
 
 
   });

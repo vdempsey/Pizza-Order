@@ -5,3 +5,11 @@
 #total {
   display: none;
 }
+
+.postSubmittion {
+  display: none;
+  margin-top: 20px;
+  background-color: #f9eb6b;
+  font-size: 16px;
+  padding: 20px;
+}
