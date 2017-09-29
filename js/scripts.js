@@ -2,6 +2,17 @@
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
+  this.price = {
+    "small": "$12.99",
+    "medium": "$14.99",
+    "large": "$20.99",
+  }
+}
+
+
+
+Pizza.prototype.total = function() {
+  return this.price[this.size];
 }
 
 //Pizza.prototype.total = function() {
@@ -27,16 +38,15 @@ $(document).ready(function() {
     var chosenSize = $("input:radio[name=size]:checked").val();
     $("#total").show();
 
-    if (chosenSize === "medium") {
-      $("#total").text("$14.99");
-    } else if (chosenSize === "small") {
-      $("#total").text("$12.99");
-    } else {
-      $("#total").text("$20.99");
-    }
-
     var customerPizza = new Pizza (chosenToppings, chosenSize);
-    console.log(customerPizza);
+    $("#total").text("Your total is " + customerPizza.total());
+    // } else if (chosenSize === "small") {
+    //   $("#total").text("$12.99");
+    // } else {
+    //   $("#total").text("$20.99");
+    // }
+
+
     //var toppingsOrdered = new Pizza(chosenToppings);
     //var sizeOrdered = new Pizza(chosenSize);
 
