@@ -21,7 +21,7 @@ The user is given directions to choose pizza size and one or more toppings. The 
 
 ### Setup/Installation Requirements
 
-* _Clone this project to your local machine using this url: https://github.com/vdempsey/Pizza-Order
+* _Clone this project to your local machine using this url: https://github.com/vdempsey/Pizza-Order _
 * _Open project folder using UI panel or type **cd Pizza-Order** in the Terminal (if using Mac) or a Console (if using Windows) to move to the project folder_
 * _Drag index.html to the browser of your choice to preview the page_
 * _See **Logic** section for logic details of the output_
