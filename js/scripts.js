@@ -15,8 +15,7 @@ function Pizza(toppings, size) {
 //user interface logic
 $(document).ready(function() {
   $("form#pizza_order").submit(function(event) {
-
-
+    event.preventDefault();
     $("#receipt").show();
     //var chosenToppings = [];
     var checkedToppings = [];
@@ -29,11 +28,11 @@ $(document).ready(function() {
     $("#total").show();
 
     if (chosenSize === "medium") {
-      $("#total").append("$14.99");
+      $("#total").text("$14.99");
     } else if (chosenSize === "small") {
-      $("#total").append("$12.99");
+      $("#total").text("$12.99");
     } else {
-      $("#total").append("$20.99");
+      $("#total").text("$20.99");
     }
 
     var customerPizza = new Pizza (chosenToppings, chosenSize);
@@ -42,9 +41,8 @@ $(document).ready(function() {
     //var sizeOrdered = new Pizza(chosenSize);
 
 
-    $("#receipt").append("You will be gettting " + chosenSize +"-sized pizza with the following toppings: " + chosenToppings + ".");
+    $("#receipt").text("You will be gettting " + chosenSize +"-sized pizza with the following toppings: " + chosenToppings + ".");
 
-    event.preventDefault();
 
   });
 });
