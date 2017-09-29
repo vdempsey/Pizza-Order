@@ -1,23 +1,30 @@
 //business logic
 function Pizza(toppings, size) {
-  this.toppings = chosenToppings;
-  this.size = chosenSize;
+  this.toppings = toppings;
+  this.size = size;
 }
 
-Pizza.prototype.orderedPizza = function() {
-  return this.toppings + " " + this.size;
-}
+//Pizza.prototype.total = function() {
+//  return this.total;
+//}
+
+//Pizza.prototype.orderedSize = function() {
+//  return this.chosenSize;
+//}
 
 //user interface logic
 $(document).ready(function() {
   $("form#pizza_order").submit(function(event) {
-    event.preventDefault();
+
+
     $("#receipt").show();
+    //var chosenToppings = [];
+    var checkedToppings = [];
     $("input:checkbox[name=toppings]:checked").each(function() {
-      var chosenToppings = $(this).val();
-      //$("#receipt").append(chosenToppings + "<br>")
+    checkedToppings.push($(this).val());
     });
 
+    var chosenToppings = checkedToppings.join(", ");
     var chosenSize = $("input:radio[name=size]:checked").val();
     $("#total").show();
 
@@ -28,8 +35,16 @@ $(document).ready(function() {
     } else {
       $("#total").append("$20.99");
     }
-    var pizzaOrdered = new Pizza(chosenToppings, chosenSize);
-    $("#receipt").append(pizzaOrdered.orderedPizza());
+
+    var customerPizza = new Pizza (chosenToppings, chosenSize);
+    console.log(customerPizza);
+    //var toppingsOrdered = new Pizza(chosenToppings);
+    //var sizeOrdered = new Pizza(chosenSize);
+
+
+    $("#receipt").append("You will be gettting " + chosenSize +"-sized pizza with the following toppings: " + chosenToppings + ".");
+
+    event.preventDefault();
 
   });
 });
