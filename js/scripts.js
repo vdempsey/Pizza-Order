@@ -39,7 +39,7 @@ $(document).ready(function() {
     var customerPizza = new Pizza (checkedToppings, chosenSize);
     $("#total").text("Your total is $" + customerPizza.total());
 
-    $("#receipt").text("You will be gettting " + customerPizza.size +"-sized pizza with the following toppings: " + customerPizza.chosenToppings() + ".");
+    $("#receipt").text("You will be getting " + customerPizza.size +"-sized pizza with the following toppings: " + customerPizza.chosenToppings() + ".");
 
 
   });
