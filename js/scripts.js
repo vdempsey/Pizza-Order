@@ -16,7 +16,6 @@ Pizza.prototype.chosenToppings = function() {
 Pizza.prototype.total = function() {
   var basePrice = this.price[this.size];
   if(this.toppings.length > 2) {
-    //(basePrice += 1.99).toFixed(2);
     basePrice += 1.99; //to reflect the price for 3 and more toppings
   }
   return basePrice.toFixed(2);
