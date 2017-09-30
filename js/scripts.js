@@ -5,7 +5,7 @@ function Pizza(toppings, size) {
   this.price = {
     "small": 12.99,
     "medium": 14.99,
-    "large": 20.99,
+    "large": 20.99
   }
 }
 
@@ -16,9 +16,10 @@ Pizza.prototype.chosenToppings = function() {
 Pizza.prototype.total = function() {
   var basePrice = this.price[this.size];
   if(this.toppings.length > 2) {
+    //(basePrice += 1.99).toFixed(2);
     basePrice += 1.99; //to reflect the price for 3 and more toppings
   }
-  return basePrice;
+  return basePrice.toFixed(2);
 }
 
 
@@ -40,7 +41,6 @@ $(document).ready(function() {
     $("#total").text("Your total is $" + customerPizza.total());
 
     $("#receipt").text("You will be getting " + customerPizza.size +"-sized pizza with the following toppings: " + customerPizza.chosenToppings() + ".");
-
 
   });
 });
